@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<script src="jquery.min.js"></script>
+<script src="options.js"></script>
+<script type="text/javascript">
+	function handleMessage(request, sender, sendResponse) {
+		switch(request.type) {
+			case "option":
+				var response = {};
+				$.each(request.keys, function(index, key) {
+					response[key] = getOption(key);
+				});
+				sendResponse(response);
+				break;
+			default:
+				sendResponse({});
+		}
+	}
+	chrome.extension.onRequest.addListener(handleMessage);
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-2369753-6']);
+	_gaq.push(['_setDomainName', 'txtbear.chrome.extensions.org']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = 'https://ssl.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script>
+</html>

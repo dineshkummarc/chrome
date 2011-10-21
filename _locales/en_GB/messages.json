@@ -1,0 +1,59 @@
+{
+   "_": {
+      "message": ""
+   },
+   "blog": {
+      "message": "Blog"
+   },
+   "domains_ignore": {
+      "message": "Domains to ignore"
+   },
+   "domains_ignore_desc": {
+      "message": "Specify one domain per line, for example: example.com"
+   },
+   "download": {
+      "message": "Download"
+   },
+   "ext_description": {
+      "message": "Automatically displays PDFs and other documents in TxtBear Viewer."
+   },
+   "ext_name": {
+      "message": "TxtBear"
+   },
+   "file_types": {
+      "message": "File types"
+   },
+   "legal": {
+      "message": "Legal"
+   },
+   "locale": {
+      "message": "en"
+   },
+   "open_in_new_tab": {
+      "message": "Open link in new tab"
+   },
+   "options": {
+      "message": "Options..."
+   },
+   "privacy": {
+      "message": "Privacy"
+   },
+   "save": {
+      "message": "Save"
+   },
+   "saved": {
+      "message": "Options saved."
+   },
+   "terms": {
+      "message": "Terms"
+   },
+   "twitter": {
+      "message": "Twitter"
+   },
+   "txtbear_options": {
+      "message": "TxtBear options"
+   },
+   "version": {
+      "message": "Version"
+   }
+}
