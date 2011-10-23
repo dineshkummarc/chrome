@@ -62,84 +62,85 @@ padding: 0 .2em;
 
 <body>
 <div>
-	<div id="logo">
-		<h1 class="title">
-			<a href="http://www.txtbear.com/" target="_blank">
-				<img src="txtbear206.png" width="206" height="60" />
-			</a>
-		</h1>
-	</div>
-	<h2 class="i i-file-types">File types</h2>
-	<ul id="file-types"></ul>
-	<h2 class="i i-domains-ignore">Domains to ignore</h2>
-	<p class="i i-domains-ignore-desc">Specify one domain per line, for example: example.com</p>
-	<textarea id="domains"></textarea>
-	<div class="center">
-		<p><button id="save" class="i i-save">Save</button></p>
-		<div id="status" class="i i-saved" style="display: none">Options saved.</div>
-	</p>
+    <div id="logo">
+        <h1 class="title">
+            <a href="http://www.txtbear.com/" target="_blank">
+                <img src="txtbear206.png" width="206" height="60" />
+            </a>
+        </h1>
+    </div>
+    <h2 class="i i-file-types">File types</h2>
+    <ul id="file-types"></ul>
+    <h2 class="i i-domains-ignore">Domains to ignore</h2>
+    <p class="i i-domains-ignore-desc">Specify one domain per line, for example: example.com</p>
+    <textarea id="domains"></textarea>
+    <div class="center">
+        <p><button id="save" class="i i-save">Save</button></p>
+        <div id="status" class="i i-saved" style="display: none">Options saved.</div>
+    </p>
 
-	<div id="foot"> 
-			<span class="i i-version">Version</span> <span class="version"></span><br /> 
-			Copyright &copy; <span class="year"></span> TxtBear AG.<br /> 
-			<a href="http://blog.txtbear.com/" class="i i-blog">Blog</a> • 
-			<a href="http://twitter.com/txtbear" class="i i-twitter">Twitter</a> • 
-			<a href="http://www.txtbear.com/impressum.html" class="i i-legal">Legal</a> • 
-			<a href="http://www.txtbear.com/privacy.html" class="i i-privacy">Privacy</a> • 
-			<a href="http://www.txtbear.com/terms.html" class="i i-terms">Terms</a> 
-	</div>
+    <div id="foot"> 
+            <span class="i i-version">Version</span> <span class="version"></span><br /> 
+            Copyright &copy; <span class="year"></span> TxtBear AG.<br /> 
+            <a href="http://blog.txtbear.com/" class="i i-blog">Blog</a> • 
+            <a href="http://twitter.com/txtbear" class="i i-twitter">Twitter</a> • 
+            <a href="http://www.txtbear.com/impressum.html" class="i i-legal">Legal</a> • 
+            <a href="http://www.txtbear.com/privacy.html" class="i i-privacy">Privacy</a> • 
+            <a href="http://www.txtbear.com/terms.html" class="i i-terms">Terms</a> 
+    </div>
 </div>
 <script type="text/javascript">
 var FILE_TYPES = {
-	//"doc": "doc, docx",
-	"pdf": "pdf"
-	//"pps": "pps",
-	//"ppt": "ppt",
-	//"tif": "tif, tiff"
+    //"doc": "doc, docx",
+    "pdf": "pdf"
+    //"pps": "pps",
+    //"ppt": "ppt",
+    //"tif": "tif, tiff"
 };
 
 // Saves options to localStorage.
 function saveOptions() {
-	$.each(FILE_TYPES, function(key, value) {
-		localStorage[key] = $("#" + key).attr("checked") ? 1 : "";
-	});
-	localStorage["domains"] = $("#domains").val().trim().toLowerCase();
+    $.each(FILE_TYPES, function(key, value) {
+        localStorage[key] = $("#" + key).attr("checked") ? 1 : "";
+    });
+    localStorage["domains"] = $("#domains").val().trim().toLowerCase();
 
-	// Update status to let user know options were saved.
-	$("#status").show();
-	setTimeout(function() {
-		$("#status").fadeOut();
-	}, 1000);
-	return false;
+    // Update status to let user know options were saved.
+    $("#status").show();
+    setTimeout(function() {
+        $("#status").fadeOut();
+    }, 1000);
+    return false;
 }
 
 // Restores select box state to saved value from localStorage.
 function restoreOptions() {
-	var list = $("#file-types");
-	$.each(FILE_TYPES, function(key, value) {
-		list.append($("<li/>")
-			.append($("<input/>", {'type': 'checkbox', 'id': key,
-				'checked': !!localStorage[key]}))
-			.append($("<label/>", {'text': ' ' + value.toUpperCase(), 'for': key})));
-	});
-	$("#domains").val(localStorage["domains"]);
+    var list = $("#file-types");
+    $.each(FILE_TYPES, function(key, value) {
+        list.append($("<li/>")
+            .append($("<input/>", {'type': 'checkbox', 'id': key,
+                'checked': !!localStorage[key]}))
+            .append($("<label/>", {'text': ' ' + value.toUpperCase(), 'for': key})));
+    });
+    $("#domains").val(localStorage["domains"]);
 }
 
 $(restoreOptions);
 
 $(".i").each(function() {
-	var s = $(this).attr("className").split(" ")[1].substring(2).split("-").join("_");
-	s = chrome.i18n.getMessage(s);
-	if(s) {
-		$(this).html(s);
-	}
+    var s;
+    s = $(this).attr("class").split(" ")[1].substring(2).split("-").join("_");
+    s = chrome.i18n.getMessage(s);
+    if(s) {
+        $(this).html(s);
+    }
 });
 
 $(function() {
-	$("#save").click(saveOptions);
-	var y = new Date().getFullYear().toString();
-	$(".year").text(y < 2011 ? y : '2010-' + y);
-	$(".version").text(VERSION_TEXT);
+    $("#save").click(saveOptions);
+    var y = new Date().getFullYear().toString();
+    $(".year").text(y < 2011 ? y : '2010-' + y);
+    $(".version").text(VERSION_TEXT);
 });
 
 var _gaq = _gaq || [];
@@ -147,9 +148,9 @@ _gaq.push(['_setAccount', 'UA-2369753-6']);
 _gaq.push(['_setDomainName', 'txtbear.chrome.extensions.org']);
 _gaq.push(['_trackPageview']);
 (function() {
-	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = 'https://ssl.google-analytics.com/ga.js';
-	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
 })();
 </script>
 </body>

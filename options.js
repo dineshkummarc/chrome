@@ -1,5 +1,5 @@
 var VERSION = "1";
-var VERSION_TEXT = "1.0.517.954";
+var VERSION_TEXT = "1.1.1923.1856";
 var FILE_TYPES = {
 	//"doc": "doc, docx",
 	"pdf": "pdf"

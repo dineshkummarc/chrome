@@ -2,21 +2,8 @@
 <html>
 <script src="jquery.min.js"></script>
 <script src="options.js"></script>
+<script src="background.js"></script>
 <script type="text/javascript">
-	function handleMessage(request, sender, sendResponse) {
-		switch(request.type) {
-			case "option":
-				var response = {};
-				$.each(request.keys, function(index, key) {
-					response[key] = getOption(key);
-				});
-				sendResponse(response);
-				break;
-			default:
-				sendResponse({});
-		}
-	}
-	chrome.extension.onRequest.addListener(handleMessage);
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', 'UA-2369753-6']);
 	_gaq.push(['_setDomainName', 'txtbear.chrome.extensions.org']);
