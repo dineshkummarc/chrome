@@ -20,13 +20,11 @@
         "48": "txtbear48.png",
         "128": "txtbear128.png"
     },
-    "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDNyH3h3nZUVPd76NzOTsXdgih6Fb0XczbQguCF2Jcbc99EuH9KbqcD29roptJHf51X/CdTCHnCoJWD+VnFmdiY3MAAugp343p0nxImQBpIkohKhY3TafE2RGJEaYrPglmYLNHvuNAq/rz963xokOMHOiGM0UGIqwAKxl9GXwqgPwIDAQAB",
     "name": "__MSG_ext_name__",
     "options_page": "options.html",
     "permissions": [
         "contextMenus",
         "tabs"
     ],
-    "update_url": "http://clients2.google.com/service/update2/crx",
     "version": "1.1.1923.1856"
 }
